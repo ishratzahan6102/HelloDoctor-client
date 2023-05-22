@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 const BookingModal = ({treatment, selectedDate, setTreatment, refetch }) => {
     const {user} = useContext(AuthContext)
     //  treatment options
-    const {name, slots} = treatment       
+    const {name, slots, price} = treatment       
     const date= format(selectedDate, "PP")
 
 
@@ -21,11 +21,12 @@ const BookingModal = ({treatment, selectedDate, setTreatment, refetch }) => {
 
         const booking = {
             appointmentDate: date,
-            patientName: patientName,
+            patientName: user.displayName,
             treatment: name,
             email,
             slot,
             phone,
+            price
 
         }
 

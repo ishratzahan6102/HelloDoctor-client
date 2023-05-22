@@ -14,7 +14,7 @@ const Banner = () => {
             <span className="text-5xl font-bold text-teal-500">
                 {user?.displayName}
             </span></h1>
-            <h1 className="text-4xl font-bold" >Welcome To doctors portal!</h1>
+            <h1 className="text-4xl font-bold" >Welcome To  <a className="uppercase font-extrabold text-xl">Hello<span className='text-black text-3xl'>Doc</span></a></h1>
             <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
             <button className="btn btn-primary  text-sm bg-gradient-to-r from-primary to-secondary">Get Started</button>
             </div>
