@@ -3,48 +3,52 @@ import { Link } from 'react-router-dom';
 import footerBg from '../../src/assets/images/footer.png'
 
 const Footer = () => {
-    return (
-        <footer className=" p-10  mt-20" style={
-          {backgroundImage:` url(${footerBg})` ,
-           backgroundSize: 'cover'
-          }}>
+  return (
+    <footer className="mt-32 " style={
+      {
+        backgroundImage: ` url(${footerBg})`,
+        backgroundSize: 'contain'
+      }}>
+
+
+      <div className='footer mt-20 justify-center md:justify-around ' >
+        <div>
+          <span className="footer-title text-secondary">SERVICES</span>
+          <Link className="link link-hover">Emergency Checkup</Link>
+          <Link className="link link-hover">Monthly Checkup</Link>
+          <Link className="link link-hover">Weekly Checkup</Link>
+          <Link className="link link-hover">Deep Checkup</Link>
+        </div>
+
+        <div>
+          <span className="footer-title text-secondary">ORAL HEALTH</span>
+          <Link className="link link-hover">Fluoride Treatment</Link>
+          <Link className="link link-hover">Cavity Filling</Link>
+          <Link className="link link-hover">Teath Whitening</Link>
+
+        </div>
+
+        <div>
+          <span className="footer-title text-secondary">OUR ADDRESS</span>
+          <Link className="link link-hover">New York - 101010 Hudson</Link>
+        </div>
+        
+        
+        </div>
+
+        <div className="footer text-slate-800 items-center p-4 mt-20  ">
+       
+        <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-center">
+        <p>Copyright © 2023 - All right reserved</p>
           
+        </div>
+      </div>
 
-          <div className='footer justify-center   md:justify-around '>
-          <div>
-            <span className="footer-title">Services</span> 
-            <Link className="link link-hover">Branding</Link> 
-            <Link className="link link-hover">Design</Link> 
-            <Link className="link link-hover">Marketing</Link> 
-            <Link className="link link-hover">Advertisement</Link>
-          </div> 
-        
-          <div>
-            <span className="footer-title">Company</span> 
-            <Link className="link link-hover">About us</Link> 
-            <Link className="link link-hover">Contact</Link> 
-            <Link className="link link-hover">Jobs</Link> 
-            <Link className="link link-hover">Press kit</Link>
-          </div> 
-        
-          <div>
-            <span className="footer-title">Social</span> 
-            <a className="link link-hover">Twitter</a> 
-            <a className="link link-hover">Instagram</a> 
-            <a className="link link-hover">Facebook</a> 
-            <a className="link link-hover">Github</a>
-          </div> 
-          </div>
+     
 
 
-        
-            <div className='text-center mt-32' >
-              <p>Copyright © 2022 - All right reserved by ACME Industries Ltd</p>
-            </div>
-  
- 
-        </footer>
-    );
+    </footer>
+  );
 };
 
 export default Footer;

@@ -33,10 +33,10 @@ const Allusers = () => {
 
 
     return (
-        <div>
-            <h1 className='text-3xl'>All Users</h1>
-            <div className="overflow-x-auto">
-  <table className="table w-full">
+      <div className='p-8'>
+      <h1 className='text-2xl uppercase text-slate-800 font-bold '>ALL USER</h1>
+      <div className="overflow-y-auto">
+        <table className="table w-full mt-4 ">
 
     <thead>
       <tr>
@@ -47,7 +47,7 @@ const Allusers = () => {
         <th>Delete</th>
       </tr>
     </thead>
-    <tbody className=' my-4'>
+    <tbody >
 
      {
         users.map((user, i) => 

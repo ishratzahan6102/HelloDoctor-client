@@ -59,10 +59,10 @@ const ManageDoctors = () => {
     
 
     return (
-        <div>
-            <h1 className='text-3xl font-bold'>Manage Doctors {doctors?.length}</h1>
-            <div className="overflow-x-auto">
-                <table className="table w-full">
+        <div className='p-8'>
+        <h1 className='text-2xl uppercase text-slate-800 font-bold '>Manage Doctors</h1>
+        <div className="overflow-y-auto">
+          <table className="table w-full mt-4 ">
 
                     <thead>
                         <tr>

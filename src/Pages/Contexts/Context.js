@@ -5,7 +5,7 @@ import { set } from 'date-fns';
 
 export const AuthContext = createContext()
 const auth = getAuth(app)
-
+const googleProvider = new GoogleAuthProvider();
 
 const Context = ({children}) => {
 
@@ -19,6 +19,12 @@ const Context = ({children}) => {
         return createUserWithEmailAndPassword( auth, email, password)
     }
     
+    // login with google 
+ const googleSignIn = () =>{
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+}
+
     // login er first kaj
     const loginUser = (email, password) => {
         setLoading(true)
@@ -56,6 +62,7 @@ const Context = ({children}) => {
         logOut,
         user,
         updateUser,
+        googleSignIn,
         loading,
         
 

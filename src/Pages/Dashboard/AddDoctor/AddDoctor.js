@@ -28,6 +28,7 @@ const AddDoctor = () => {
                     const doctors = {
                         name: data.name,
                         email: data.email,
+                        phone: data.phone,
                         specialty: data.specialty,
                         img: imgData.data.url
 
@@ -72,43 +73,67 @@ const AddDoctor = () => {
         return <Loading></Loading>
     }
     return (
-        <div className='w-96 p-7'>
-            <h1 className='text-3xl font-bold'>Add a doctor</h1>
-            <form onSubmit={handleSubmit(handleAddDoctor)}>
+        <div className='p-8 flex justify-center text-white items-center '>
+            <div className='lg:w-1/2 p-10 bg-gradient-to-r from-primary to-secondary rounded shadow-lg shadow-teal-300'>
+            <h1 className='text-xl uppercase font-bold '>Add Doctor</h1>
+            <form onSubmit={handleSubmit(handleAddDoctor)} >
 
-                <div className="form-control w-full max-w-xs">
+            <div className="form-control text-slate-800 ">
                     <label className="label">
-                        <span className="label-text">Name</span>
+                        <span className="label-text ">Name</span>
                     </label>
-                    <input type='text' className='input input-bordered' {...register("name", { required: "Name is required" })} />
+                    <input  type='text'  className=' text-slate-800 input input-bordered input-primary ' {...register("name" , {required: "name is required"})}  />
                     {errors.name && <p className='text-error'>{errors.name?.message}</p>}
                 </div>
-
-                <div className="form-control w-full max-w-xs">
+                <label className="label">
+                            <span className="label-text">Schedule</span>
+                        </label>
+               <select name='specialty' defaultValue='Teeth Orthodontics' className="select rounded-none text-slate-800 select-primary select-bordered w-full mb-4">
+                    
+                   <option value='Teeth Orthodontics'>Teeth Orthodontics</option>
+                   <option value='Cosmetic Dentistry'>Cosmetic Dentistry</option>
+                   <option value='Pediatric Dental'>Pediatric Dental</option>
+                   <option value='Oral Surgery'>Oral Surgery</option>
+                   <option value='Teeth Cleaning'>Teeth Cleaning</option>
+                   <option value='Cavity Protection'>Cavity Protection</option>
+                  
+                   
+                </select><br/>
+                <div className="form-control ">
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <input type='text' className='input input-bordered' {...register("email", { required: "Email address is required" })} />
+                    <input type='text'  className=' text-slate-800 input input-bordered input-primary ' {...register("email", { required: "Email address is required" })} />
                     {errors.email && <p className='text-error'>{errors.email?.message}</p>}
                 </div>
 
+                <div className="form-control ">
+                    <label className="label">
+                        <span className="label-text">Cell number</span>
+                    </label>
+                    <input type='text'  className=' text-slate-800 input input-bordered input-primary ' {...register("phone", { required: "cell number address is required" })} />
+                    {errors.phone && <p className='text-error'>{errors.phone?.message}</p>}
+                </div>
 
-                <div className="form-control w-full max-w-xs pb-6">
-                    <div className="form-control w-full max-w-xs">
+
+                <div className="form-control">
+                    <div className="form-control ">
                         <label className="label">
                             <span className="label-text">Photo</span>
                         </label>
-                        <input type='file' className='input input-bordered' {...register("img", { required: "Photo is required" })} />
+                        <input type='file' className=' text-slate-800 input input-bordered input-primary ' {...register("img", { required: "Photo is required" })} />
                         {errors.img && <p className='text-error'>{errors.img?.message}</p>}
                     </div>
                 </div>
 
 
-                <input className='btn btn-neutral w-full' value='Add Task' type="submit" />
+                <input className='btn btn-neutral normal-case w-full text-white my-4' value='Add a profile' type="submit" />
                 {/* {signUpError && <p className='text-error'>{signUpError}</p>} */}
                 <Toaster />
             </form>
 
+            </div>
+       
         </div>
     );
 };

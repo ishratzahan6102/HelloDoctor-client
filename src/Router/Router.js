@@ -5,7 +5,10 @@ import AddDoctor from "../Pages/Dashboard/AddDoctor/AddDoctor";
 import ManageDoctors from "../Pages/ManageDoctors/ManageDoctors";
 import MyAppointment from "../Pages/MyAppointment/MyAppointment";
 import Payment from "../Pages/Payment/Payment";
+import PaymentFail from "../Pages/Payment/PaymentFail";
+import PaymentSuccess from "../Pages/Payment/PaymentSuccess";
 import PrivateRoute from "../Pages/PrivateRoute";
+import DisplayError from "../Shared/DisplayError/DisplayError";
 import AdminRoute from "./AdminRoute/AdminRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -41,12 +44,21 @@ export const router = createBrowserRouter([
                 path: '/myReviews' ,
                 element: <MyReviews></MyReviews>
             },
+            {
+                path: '/payment/success',
+                element: <PaymentSuccess></PaymentSuccess>,                
+            },
+            {
+                path: '/payment/fail',
+                element: <PaymentFail></PaymentFail>,                
+            }
             
         ]
     },
     {
         path: '/dashboard',
         element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        errorElement: <DisplayError></DisplayError>,
         children: [
             {
                 path: '/dashboard',
@@ -68,8 +80,13 @@ export const router = createBrowserRouter([
             ,
             {
                 path: '/dashboard/payment/:id',
-                element: <AdminRoute><Payment></Payment></AdminRoute>
+                element: <Payment></Payment>,
+                loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`)
             }
+            ,
+           
+            
+
         ]
     }
     
