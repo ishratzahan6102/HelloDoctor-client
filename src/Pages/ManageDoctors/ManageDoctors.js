@@ -19,9 +19,9 @@ const ManageDoctors = () => {
         queryFn: async () => {
             try {
                 const res = await fetch(`http://localhost:5000/doctors`, {
-                    headers: {
-                        authorization: `bearer ${localStorage.getItem("accessToken")}`
-                    }
+                    // headers: {
+                    //     authorization: `bearer ${localStorage.getItem("accessToken")}`
+                    // }
                 })
                 const data = await res.json()
                 return data
@@ -35,7 +35,7 @@ const ManageDoctors = () => {
 
 
     const handleDeleteDoctor = (doctor) => {
-        console.log(doctor)
+        // console.log(doctor)
         fetch(`http://localhost:5000/doctors/${doctor._id}`, {
             method : "DELETE",
             headers : {
@@ -44,7 +44,7 @@ const ManageDoctors = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             if(data.deletedCount > 0){
                 refetch()
                 toast.success("Deleted Successfully")
@@ -70,6 +70,7 @@ const ManageDoctors = () => {
                             <th>Avatar</th>
                             <th>Name</th>
                             <th>Specialty</th>
+                            {/* <th>Designation</th> */}
                             <th>Email</th>
                             <th>Action</th>
                         </tr>

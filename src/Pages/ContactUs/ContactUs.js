@@ -26,7 +26,7 @@ const ContactUs = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+             
                 if (data.acknowledged) {
                     toast.success('We will get back to you soon.')
                     form.reset()

@@ -11,9 +11,9 @@ const Footer = () => {
       }}>
 
 
-      <div className='footer mt-20 justify-center md:justify-around ' >
+      <div className='footer p-4 mt-20 justify-start md:justify-around ' >
         <div>
-          <span className="footer-title text-secondary">SERVICES</span>
+          <span className="footer-title text-emerald-700 font-bold underline">SERVICES</span>
           <Link className="link link-hover">Emergency Checkup</Link>
           <Link className="link link-hover">Monthly Checkup</Link>
           <Link className="link link-hover">Weekly Checkup</Link>
@@ -21,7 +21,7 @@ const Footer = () => {
         </div>
 
         <div>
-          <span className="footer-title text-secondary">ORAL HEALTH</span>
+          <span className="footer-title text-emerald-700 font-bold underline">ORAL HEALTH</span>
           <Link className="link link-hover">Fluoride Treatment</Link>
           <Link className="link link-hover">Cavity Filling</Link>
           <Link className="link link-hover">Teath Whitening</Link>
@@ -29,7 +29,7 @@ const Footer = () => {
         </div>
 
         <div>
-          <span className="footer-title text-secondary">OUR ADDRESS</span>
+          <span className="footer-title text-emerald-700 font-bold underline">OUR ADDRESS</span>
           <Link className="link link-hover">New York - 101010 Hudson</Link>
         </div>
         

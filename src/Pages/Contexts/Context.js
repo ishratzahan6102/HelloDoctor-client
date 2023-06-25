@@ -48,7 +48,7 @@ const Context = ({children}) => {
 
     useEffect(() => {
         const unsubscrib = onAuthStateChanged(auth, currentUser => {
-            console.log("User logged in")
+       
             setUser(currentUser)
             setLoading(false)
         })

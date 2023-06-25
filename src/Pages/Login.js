@@ -37,18 +37,15 @@ const Login = () => {
 
 
     const handleLogin = data => {
-        console.log(data)
         setLoginError('')
         loginUser(data.email, data.password)
         .then((result) => {
             const user = result.user;
-            console.log(user)
             toast.success(`Welcome back.`)
             setLoginUserEmail(data.email)
         
         })
         .catch((error) => { 
-            console.log(error.message)
             setLoginError(error.message)
         });
 
@@ -59,13 +56,13 @@ const Login = () => {
         googleSignIn()
         .then((result) =>{
             const user  = result.user
-            console.log(user)
+        
             toast.success(`Welcome back`)
             navigate(from, {replace: true}) 
            
         })
         .catch((error) => { 
-            console.log(error)
+    
             setLoginError(error)
         })
        
@@ -75,9 +72,9 @@ const Login = () => {
 
 
     return (
-        <div className='h-[800px]  flex justify-center text-white items-center '>
-            <div className='w-1/3 p-10 bg-gradient-to-r from-primary to-secondary rounded shadow-lg shadow-teal-300'>
-                <h2 className='text-2xl font-bold uppercase '>Log in</h2>
+        <div className='h-[100vh] m-4 flex justify-center text-white items-center '>
+            <div className='w-full md:w-1/3 p-10 bg-gradient-to-r from-primary to-secondary rounded shadow-lg shadow-teal-300'>
+                <h2 className='text-4xl font-bold uppercase '>Log in</h2>
                 <form onSubmit={handleSubmit(handleLogin)} >
 
                     <div className="form-control ">
@@ -102,7 +99,7 @@ const Login = () => {
                     {/* <p>{data}</p> */}
                     <input className='btn btn-neutral  w-full text-white mt-4' value='Submit' type="submit" />
                     {loginError && <p className='text-errors'>{loginError}</p>}
-                    <p>New To This Page ?<Link className='text-green-300' to='/signup'> Create New Account</Link></p>
+                    <p className='text-center my-2'><Link className='text-white underline' to='/signup'> Create a new account</Link></p>
                     <div className='divider'>OR</div>
                     <input onClick={handleGoogle} className='btn w-full text-white ' value='Continue With Goggle' />
                 </form>

@@ -29,7 +29,7 @@ const Payment = () => {
             treatment
         }
 
-        console.log(service)
+        // console.log(service)
 
         fetch('http://localhost:5000/orders', {
             method: 'POST',

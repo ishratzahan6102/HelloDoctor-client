@@ -24,9 +24,10 @@ const AddDoctor = () => {
             .then(res => res.json())
             .then(imgData => {
                 if (imgData.success) {
-                    console.log(imgData.data.url)
+                    // console.log(imgData.data.url)
                     const doctors = {
                         name: data.name,
+                        designation: data.designation,
                         email: data.email,
                         phone: data.phone,
                         specialty: data.specialty,
@@ -48,7 +49,7 @@ const AddDoctor = () => {
                     })
                         .then(res => res.json())
                         .then(result => {
-                            console.log(result)
+                         
                             toast.success(`${data.name} is added successfully`)
                             navigate('/dashboard/managedoctors')
                         })
@@ -73,22 +74,23 @@ const AddDoctor = () => {
         return <Loading></Loading>
     }
     return (
-        <div className='p-8 flex justify-center text-white items-center '>
+        <div className='mx-auto w-11/12 my-20'>
+             <h1 className='text-2xl uppercase font-bold mb-6'>Add Doctor</h1>
             <div className='lg:w-1/2 p-10 bg-gradient-to-r from-primary to-secondary rounded shadow-lg shadow-teal-300'>
-            <h1 className='text-xl uppercase font-bold '>Add Doctor</h1>
+           
             <form onSubmit={handleSubmit(handleAddDoctor)} >
 
             <div className="form-control text-slate-800 ">
                     <label className="label">
-                        <span className="label-text ">Name</span>
+                        <span className="label-text text-white text-base ">Name</span>
                     </label>
                     <input  type='text'  className=' text-slate-800 input input-bordered input-primary ' {...register("name" , {required: "name is required"})}  />
                     {errors.name && <p className='text-error'>{errors.name?.message}</p>}
                 </div>
                 <label className="label">
-                            <span className="label-text">Schedule</span>
+                            <span className="label-text text-white text-base">Specialty</span>
                         </label>
-               <select name='specialty' defaultValue='Teeth Orthodontics' className="select rounded-none text-slate-800 select-primary select-bordered w-full mb-4">
+               <select name='text' defaultValue='Teeth Orthodontics' className="select rounded-none text-slate-800 select-primary select-bordered w-full mb-4" {...register("specialty")}>
                     
                    <option value='Teeth Orthodontics'>Teeth Orthodontics</option>
                    <option value='Cosmetic Dentistry'>Cosmetic Dentistry</option>
@@ -99,17 +101,28 @@ const AddDoctor = () => {
                   
                    
                 </select><br/>
+
                 <div className="form-control ">
                     <label className="label">
-                        <span className="label-text">Email</span>
+                        <span className="label-text text-white text-base">Designation</span>
+                    </label>
+                    <input type='text'  className=' text-slate-800 input input-bordered input-primary ' {...register("designation", { required: "designation is required" })} />
+                    {errors.designation && <p className='text-error'>{errors.designation?.message}</p>}
+                </div>
+
+                <div className="form-control ">
+                    <label className="label">
+                        <span className="label-text text-white text-base">Email</span>
                     </label>
                     <input type='text'  className=' text-slate-800 input input-bordered input-primary ' {...register("email", { required: "Email address is required" })} />
                     {errors.email && <p className='text-error'>{errors.email?.message}</p>}
                 </div>
 
+               
+
                 <div className="form-control ">
                     <label className="label">
-                        <span className="label-text">Cell number</span>
+                        <span className="label-text text-white text-base">Phone number</span>
                     </label>
                     <input type='text'  className=' text-slate-800 input input-bordered input-primary ' {...register("phone", { required: "cell number address is required" })} />
                     {errors.phone && <p className='text-error'>{errors.phone?.message}</p>}
@@ -119,7 +132,7 @@ const AddDoctor = () => {
                 <div className="form-control">
                     <div className="form-control ">
                         <label className="label">
-                            <span className="label-text">Photo</span>
+                            <span className="label-text text-white text-base">Photo</span>
                         </label>
                         <input type='file' className=' text-slate-800 input input-bordered input-primary ' {...register("img", { required: "Photo is required" })} />
                         {errors.img && <p className='text-error'>{errors.img?.message}</p>}

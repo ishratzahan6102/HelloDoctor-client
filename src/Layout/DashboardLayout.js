@@ -31,15 +31,9 @@ const DashboardLayout = () => {
                     <ul className="menu w-72 text-secondary font-semibold">
                     <button className="m-6 normal-case font-semibold rounded-full btn border-none text-sm bg-gradient-to-r from-primary to-secondary text-white">Check Appointment</button>
                         <li className=''><Link to='/dashboard'>Appointments</Link></li>
-                       {
-                       isAdmin && 
-                        <>   
                             <li><Link to='/dashboard/users'>Users</Link></li>
                             <li><Link to='/dashboard/addDoctor'>Add Doctors</Link></li>
                             <li><Link to='/dashboard/managedoctors'>Manage Doctors</Link></li>
-                        </>
-                       }
-                       
                     </ul>
 
                 </div>

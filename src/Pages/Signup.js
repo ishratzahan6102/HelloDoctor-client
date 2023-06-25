@@ -37,13 +37,13 @@ const Signup = () => {
 
 
     const handleSignup = data => {
-        console.log(data)
+    
         setSignUpError('')
 
         createUser(data.email, data.password)
             .then((result) => {
                 const user = result.user;
-                console.log(user)
+             
                 toast('User created successfully.')
                 const userInfo = {
                     displayName: data.name
@@ -55,7 +55,7 @@ const Signup = () => {
                     .catch(error => console.log(error))
             })
             .catch((error) => {
-                console.log(error)
+            
                 setSignUpError(error)
             });
 
@@ -71,7 +71,7 @@ const Signup = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log("saveUser", data)
+                   
                     setCreatedUserEmail(email)
                 })
         }
@@ -84,12 +84,12 @@ const Signup = () => {
         googleSignIn()
         .then((result) =>{
             const user  = result.user
-            console.log(user)
+            
             toast.success(`Welcome back to Astor ${user.displayName}.`)
             saveUser(user.displayName, user.email)
         })
         .catch((error) => { 
-            console.log(error)
+           
             setSignUpError(error)
         })
 
@@ -104,7 +104,7 @@ const Signup = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log("saveUser", data)
+                
                     setCreatedUserEmail(email)
                 })
         }
@@ -115,9 +115,9 @@ const Signup = () => {
     
 
     return (
-        <div className='h-[800px]  flex justify-center text-white items-center '>
-        <div className='w-1/3 p-10 bg-gradient-to-r from-primary to-secondary rounded shadow-lg shadow-teal-300'>
-            <h2 className='text-2xl font-bold uppercase '>Sign up</h2>
+        <div className='h-[100vh] m-4 flex justify-center text-white items-center '>
+        <div className='w-full md:w-1/3 p-10  bg-gradient-to-r from-primary to-secondary rounded shadow-lg shadow-teal-300'>
+            <h2 className='text-4xl font-bold uppercase '>Sign up</h2>
                 <form onSubmit={handleSubmit(handleSignup)}>
 
                     <div className="form-control ">
@@ -157,7 +157,7 @@ const Signup = () => {
                     <input className='btn btn-neutral w-full text-white mt-4' value='submit' type="submit" />
                     {/* {signUpError && <p className='text-error'>{signUpError}</p>} */}
                     <Toaster />
-                    <p>Already have an account ? <Link className='text-green-300' to='/login'>Login here</Link></p>
+                    <p className='text-center my-2'> <Link className='text-white underline '  to='/login'>Already have an account?</Link></p>
                     <div className='divider'>OR</div>
                     <input onClick={handleGoogle} className='btn w-full text-white ' value='Continue With Goggle' />
                 </form>

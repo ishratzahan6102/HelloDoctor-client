@@ -5,11 +5,11 @@ import { useLocation } from 'react-router-dom';
 
 const PaymentSuccess = () => {
     const location = useLocation()
-    console.log(location.search)
+    // console.log(location.search)
 
     const query = new URLSearchParams(location.search);
     const transactionId = query.get("transactionId")
-    console.log(transactionId)
+    // console.log(transactionId)
 
 
     const [orders, setOrders] = useState({})
@@ -19,7 +19,7 @@ const PaymentSuccess = () => {
             .then(res => res.json())
             .then(data => {
                 setOrders(data)
-                console.log(data)
+                // console.log(data)
             }
             )
     }, [transactionId])

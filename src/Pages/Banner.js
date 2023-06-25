@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import chair from "../../src/assets/images/chair.png" ;
 import bg from "../../src/assets/images/bg.png" ;
 import { AuthContext } from './Contexts/Context';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     const {user, logOut} = useContext(AuthContext) 
@@ -13,9 +14,10 @@ const Banner = () => {
             <div>
            
             <p className='py-4 font-bold  text-primary'>By The Doctors of Community Hospital</p>
-            <h1 className=" text-5xl font-bold  text-slate-800 " >Your New Smile Starts<br></br>Here.</h1>
+            <h1 className=" text-4xl md:text-5xl font-bold  text-slate-800 " >Your New Smile Starts<br></br>Here.</h1>
             <p className=" py-4 font-sans text-md text-justify">The hospital is a showcase of synergy of medical technology and advances in ICT through paperless medical records.  The skilled nurses, technologists and administrators of Bangladesh.</p>
-            <button className="normal-case font-semibold rounded btn border-none  text-sm bg-gradient-to-r from-primary to-secondary text-white">MAKE AN APPOINTMENT</button>
+          <Link to='/appointment'>
+          <button className="normal-case font-semibold rounded btn border-none  text-sm bg-gradient-to-r from-primary to-secondary text-white">MAKE AN APPOINTMENT</button></Link>
             </div>
         </div>
         </div>
